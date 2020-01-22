@@ -1,0 +1,2 @@
+# dearblog
+Basic Blog Theme
