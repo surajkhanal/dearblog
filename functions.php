@@ -121,6 +121,7 @@ add_action( 'widgets_init', 'dearblog_widgets_init' );
  */
 function dearblog_scripts() {
 	wp_enqueue_style( 'dearblog-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'dearblog-style2', get_template_directory_uri() . '/css/dearblog.css' );
 
 	wp_enqueue_script( 'dearblog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

@@ -1,0 +1,180 @@
+@import "scss/_mixings.scss";
+@import "scss/layout.scss";
+@import "scss/header.scss";
+@import "scss/footer.scss";
+
+a {
+  text-decoration: none;
+  color: crimson;
+  @include transition(0.3s ease);
+
+  &:visited {
+    color: initial;
+  }
+
+  &:hover {
+    //todo define colors
+    color: #e14437 !important;
+  }
+}
+
+ul {
+
+}
+
+input[type="text"], input[type="search"] {
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.container {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.site-content {
+  padding: 50px 0;
+}
+
+.content-area {
+  float: left;
+  position: relative;
+  width: 72%;
+  padding-right: 30px;
+  border: 0 solid #f1f1f1;
+  border-right-width: 1px;
+}
+
+.widget-area {
+  width: 28%;
+  float: right;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+#secondary {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.widget_search {
+  .search-submit {
+    display: none;
+  }
+}
+
+.widget_recent_comments,
+.widget_recent_entries {
+  li {
+    padding: 5px 0;
+  }
+}
+
+header {
+  &.site-header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .site-branding {
+    float: left;
+    display: table;
+
+    .site-title {
+      display: table-cell;
+      height: 70px;
+      vertical-align: middle;
+      font-size: 24px;
+    }
+  }
+}
+
+#site-navigation {
+  float: right;
+  width: auto;
+  clear: none;
+
+  #primary-menu {
+    > li {
+      > a {
+        line-height: 70px;
+        font-size: 14px;
+        color: #777;
+        padding: 0 15px;
+      }
+    }
+  }
+}
+
+
+#comments {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #f1f1f1;
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &.children {
+      margin-left: 30px
+    }
+  }
+
+  .comment-author {
+    margin-left: 60px;
+    position: relative;
+  }
+
+  img.avatar {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    margin-right: 30px;
+    margin-left: -60px;
+    @include border-radius(50%);
+  }
+
+  .comment-metadata {
+    font-size: 12px;
+    margin-left: 60px;
+  }
+
+  .comment-body {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .empty-closed-comments {
+    display: none
+  }
+
+  .comment-content {
+  }
+
+  .reply {
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+}
+
+.site-footer {
+  .site-info {
+    background-color: #1B1B1B;
+    padding: 15px 0;
+    font-size: 12px;
+    line-height: 1;
+    color: #b5b5b5;
+    text-align: center;
+    a{
+      color:inherit;
+    }
+  }
+}

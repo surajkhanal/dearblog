@@ -1,0 +1,171 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($value) {
+  -webkit-box-flex: $value;
+  -ms-flex: $value;
+  flex: $value;
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  transition: $value;
+}
+
+@mixin transform-origin($value) {
+  -webkit-transform-origin: $value;
+  -moz-transform-origin: $value;
+  transform-origin: $value;
+}
+
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin box-shadow($value){
+  box-shadow: $value;
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+}
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote(( $y / $x ) * 100 + '%');
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+$breakpoints: (
+        "phone": 400px,
+        "phone-wide": 480px,
+        "phablet": 560px,
+        "tablet-small": 640px,
+        "tablet": 768px,
+        "tablet-wide": 1024px,
+        "desktop": 1248px,
+        "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin hardware($backface: true, $perspective: 1000) {
+  @if $backface {
+    backface-visibility: hidden;
+  }
+  perspective: $perspective;
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/// Adds a browser prefix to the property
+/// @param {*} $property Property
+/// @param {*} $value Value
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+/// Background Gradient
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+
+@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+  background-image: -moz-linear-gradient(top, $startColor, $endColor);
+  background-image: -ms-linear-gradient(top, $startColor, $endColor);
+  background-image: -o-linear-gradient(top, $startColor, $endColor);
+  background-image: linear-gradient(top, $startColor, $endColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+
+/// Background Horizontal
+/// @param {Color} $startColor [#3C3C3C] - Start Color
+/// @param {Color} $endColor [#999999] - End Color
+
+@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+  background-image: -moz-linear-gradient(left, $startColor, $endColor);
+  background-image: -ms-linear-gradient(left, $startColor, $endColor);
+  background-image: -o-linear-gradient(left, $startColor, $endColor);
+  background-image: linear-gradient(left, $startColor, $endColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');
+}
+
+@mixin background-size($width: 100%, $height: $width) {
+  @if type-of($width) == 'number' and $height != null {
+    @include css3-prefix('background-size', $width $height);
+  } @else {
+    @include css3-prefix('background-size', $width);
+  }
+}
