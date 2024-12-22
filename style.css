@@ -389,8 +389,8 @@ optgroup,
 textarea {
   color: #404040;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 h1,
@@ -402,8 +402,20 @@ h6 {
   clear: both;
 }
 
+h1 {
+  font-size: 60px;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
 p {
   margin-bottom: 1.5em;
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 dfn,
@@ -661,6 +673,11 @@ textarea {
 .main-navigation #primary-menu li.menu-item-has-children > a {
   padding-right: 0;
 }
+.main-navigation #primary-menu li.menu-item-has-children .dropdown-menu-toggle {
+  display: inline-block;
+  height: 100%;
+  clear: both;
+}
 .main-navigation #primary-menu li:hover > ul,
 .main-navigation #primary-menu li.focus > ul {
   left: auto;
@@ -688,6 +705,10 @@ textarea {
   line-height: normal;
   width: 200px;
   padding: 12px 20px 12px 20px;
+}
+.main-navigation #primary-menu .db-icon {
+  display: inline-flex;
+  vertical-align: middle;
 }
 .main-navigation li {
   float: left;
@@ -752,7 +773,7 @@ textarea {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 0;
 }
 
 .page-links {
@@ -957,6 +978,7 @@ textarea {
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
+  padding: 40px;
 }
 
 .grid-parent {
