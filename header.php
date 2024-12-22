@@ -32,7 +32,7 @@ if ( !function_exists( 'generate_menu_search_icon' ) ) {
 				sprintf(
 					'<li class="search-item menu-item-align-right"><a aria-label="%1$s" href="#">%2$s</a></li>',
 					esc_attr__( 'Open Search Bar', 'dearblog' ),
-					get_svg_icon( 'search' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in function.
+					get_svg_icon( 'search' ) . get_svg_icon( 'close' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in function.
 				)
 			);
 			
@@ -117,6 +117,7 @@ if ( !function_exists( 'generate_dropdown_icon_to_menu_link' ) ) {
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
+				<?php get_search_form(); ?>
                 <button class="menu-toggle" aria-controls="primary-menu"
                         aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'dearblog' ); ?></button>
 							<?php

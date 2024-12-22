@@ -5,7 +5,8 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteNavigation = document.getElementById('site-navigation');
+	const searchButton = document.querySelector(".search-item");
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -59,15 +60,32 @@
 	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
 	// Toggle focus each time a menu link is focused or blurred.
-	for ( const link of links ) {
-		link.addEventListener( 'focus', toggleFocus, true );
-		link.addEventListener( 'blur', toggleFocus, true );
-	}
+	// for ( const link of links ) {
+	// 	link.addEventListener( 'focus', toggleFocus, true );
+	// 	link.addEventListener( 'blur', toggleFocus, true );
+	// }
 
 	// Toggle focus each time a menu link with children receive a touch event.
 	for ( const link of linksWithChildren ) {
 		link.addEventListener( 'touchstart', toggleFocus, false );
 	}
+
+	/** Toggle Search form */
+	searchButton.addEventListener('click', () => {
+		if (searchButton.classList.contains('focus')) {
+			searchButton.classList.remove('focus');
+		} else {
+			searchButton.classList.add('focus');
+		}
+
+		const searchForm = document.querySelector('.navigation-search');
+		if (searchForm.classList.contains('nav-search-active')) {
+			searchForm.classList.remove('nav-search-active');
+		} else {
+			searchForm.classList.add('nav-search-active');
+			searchForm.querySelector('input[type="search"]').focus();
+		}
+	});
 
 	/**
 	 * Sets or removes .focus class on an element.
@@ -81,6 +99,7 @@
 				if ( 'li' === self.tagName.toLowerCase() ) {
 					self.classList.toggle( 'focus' );
 				}
+
 				self = self.parentNode;
 			}
 		}
