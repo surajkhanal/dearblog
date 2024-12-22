@@ -30,6 +30,11 @@
         &>a {
           padding-right: 0;
         }
+        .dropdown-menu-toggle{
+          display: inline-block;
+          height: 100%;
+          clear: both;
+        }
       }
     }
 
@@ -97,6 +102,10 @@
       vertical-align: middle;
     }
 
+    .db-icon{
+      display: inline-flex;
+      vertical-align: middle;
+    }
   }
 
 
