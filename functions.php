@@ -149,6 +149,7 @@ function dearblog_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dearblog_scripts' );
 
+require get_template_directory() . '/inc/theme-functions.php';
 /**
  * Implement the Custom Header feature.
  */

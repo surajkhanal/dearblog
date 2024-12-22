@@ -17,7 +17,7 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
-    "sass": "^1.64.1"
+    "sass": "1.32.13"
   },
   "rtlcssConfig": {
     "options": {
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "watch": "sass sass/:./ --style=expanded --no-charset --watch",
-    "compile:css": "sass sass/:./ --no-source-map --style=expanded --no-charset && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:css": "sass sass/:./ --no-source-map --style=expanded --no-charset",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
