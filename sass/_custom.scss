@@ -1,0 +1,23 @@
+.wp-block-group__inner-container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-parent {
+  padding-left: 0;
+  padding-right: 0;
+}
+.grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.inside-header {
+  padding: 15px;
+}
+body .grid-container {
+  max-width: 1140px;
+}
