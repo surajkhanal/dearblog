@@ -71,20 +71,43 @@
 	}
 
 	/** Toggle Search form */
-	searchButton.addEventListener('click', () => {
-		if (searchButton.classList.contains('focus')) {
-			searchButton.classList.remove('focus');
-		} else {
-			searchButton.classList.add('focus');
-		}
+	function toggleSearchForm() {
+		const searchForms = document.querySelectorAll('.navigation-search');
+		searchForms.forEach(searchForm => {
+			if (searchForm.classList.contains('nav-search-active')) {
+				searchForm.classList.remove('nav-search-active');
+			} else {
+				searchForm.classList.add('nav-search-active');
+				searchForm.querySelector('input[type="search"]').focus();
+			}
+		});
+	}
 
-		const searchForm = document.querySelector('.navigation-search');
-		if (searchForm.classList.contains('nav-search-active')) {
-			searchForm.classList.remove('nav-search-active');
+	searchButton.addEventListener('click', function () {
+		if (this.classList.contains('focus')) {
+			this.classList.remove('focus');
 		} else {
-			searchForm.classList.add('nav-search-active');
-			searchForm.querySelector('input[type="search"]').focus();
+			this.classList.add('focus');
 		}
+		toggleSearchForm();
+	});
+	const mobileSearchBtn = document.querySelector('.mobile-search-item');
+	mobileSearchBtn.addEventListener('click', function (e) {
+		if (this.classList.contains('focus')) {
+			this.classList.remove('focus');
+		} else {
+			this.classList.add('focus');
+		}
+		toggleSearchForm();
+	});
+
+	/**
+	 * Mobile nav
+	 */
+	const mobileNav = document.querySelector('.mobile-menu #primary-menu');
+	document.querySelector('.menu-toggle[aria-controls="mobile-menu"]').addEventListener('click', function () { 
+		this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') == 'false');
+		mobileNav.style.display = mobileNav.style.display == 'flex' ? 'none': 'flex';
 	});
 
 	/**
